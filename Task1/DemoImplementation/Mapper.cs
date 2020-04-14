@@ -24,9 +24,9 @@ namespace Task1.DemoImplementation
 
         private static string SanitizeNameWithId(string name, string id) => $"{Sanitize(name)} {Sanitize(id)}";
 
-        private static string Sanitize(string @string) => String
-            .Join("", @string.Where(letter => Char.IsDigit(letter)
-                                          || (letter >= 'a' && letter <= 'z')
-                                          || (letter >= 'A' && letter <= 'Z')));
+        private static string Sanitize(string @string) => 
+            String.Join("", @string.Where(letter => Char.IsDigit(letter)
+                                                || (letter >= 'a' && letter <= 'z')
+                                                || (letter >= 'A' && letter <= 'Z')));
     }
 }
