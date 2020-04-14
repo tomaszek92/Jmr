@@ -1,14 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text.RegularExpressions;
+using Task1.DemoSource;
 using Task1.DemoTarget;
 
 namespace Task1.DemoImplementation
 {
     public class Mapper
     {
-        public static IEnumerable<PersonWithEmail> Flatten(IEnumerable<DemoSource.Person> people)
+        // Ta metoda może zostać użyta, np. do mapowania encji bazodanowych na encje dto.
+        // W przypadku takiego mapowania, trzeba uważać by właściowść Emails z klasy Person była zmaterializowana.
+        // Dzięki temu unikniemy kolejnych zapytań do bazy danych, co będzie mało wydajne.
+        public static IEnumerable<PersonWithEmail> Flatten(IEnumerable<Person> people)
         {
             return people
                 .Where(person => person.Emails != null)
